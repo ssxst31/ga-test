@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { buttonClick } from '../lib/gtag'
 
 const PRODUCTS = [
   { id: 1, name: '상품 A', price: 10000 },
@@ -15,6 +16,7 @@ export default function Home() {
           <Link
             key={p.id}
             to={`/product/${p.id}`}
+            onClick={() => buttonClick({ label: p.name, location: 'home' })}
             style={{
               display: 'block',
               padding: 20,

@@ -16,6 +16,12 @@ export function beginCheckout({ items, value, currency = "KRW" }) {
   });
 }
 
+export function buttonClick({ label, location }) {
+  TagManager.dataLayer({
+    dataLayer: { event: "button_click", button_label: label, button_location: location },
+  });
+}
+
 export function purchase({ transactionId, items, value, currency = "KRW" }) {
   // GTM으로도 전달
   TagManager.dataLayer({

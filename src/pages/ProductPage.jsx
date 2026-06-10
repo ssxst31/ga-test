@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { beginCheckout } from '../lib/gtag'
+import { beginCheckout, buttonClick } from '../lib/gtag'
 
 const PRODUCTS = {
   1: { id: 1, name: '상품 A', price: 10000 },
@@ -15,6 +15,7 @@ export default function ProductPage() {
   if (!product) return <div style={{ padding: 40 }}>상품을 찾을 수 없습니다.</div>
 
   function handleCheckout() {
+    buttonClick({ label: '결제하기', location: 'product' })
     beginCheckout({
       value: product.price,
       items: [{ item_id: String(product.id), item_name: product.name, price: product.price, quantity: 1 }],

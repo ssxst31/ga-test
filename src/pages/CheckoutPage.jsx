@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { purchase } from '../lib/gtag'
+import { purchase, buttonClick } from '../lib/gtag'
 
 export default function CheckoutPage() {
   const { state } = useLocation()
@@ -9,6 +9,7 @@ export default function CheckoutPage() {
   if (!product) return <div style={{ padding: 40 }}>잘못된 접근입니다.</div>
 
   function handlePurchase() {
+    buttonClick({ label: '결제 완료', location: 'checkout' })
     const txId = `TX-${Date.now()}`
     purchase({
       transactionId: txId,
