@@ -18,21 +18,21 @@ export function beginCheckout({ items, value, currency = "KRW" }) {
 
 export function purchase({ transactionId, items, value, currency = "KRW" }) {
   // GTM으로도 전달
-  // TagManager.dataLayer({
-  //   dataLayer: {
-  //     event: 'purchase',
-  //     transaction_id: transactionId,
-  //     currency,
-  //     value,
-  //     items,
-  //   },
-  // })
+  TagManager.dataLayer({
+    dataLayer: {
+      event: "purchase",
+      transaction_id: transactionId,
+      currency,
+      value,
+      items,
+    },
+  });
 
   // GA4로 직접 전달
-  window.gtag("event", "purchase", {
-    transaction_id: transactionId,
-    currency,
-    value,
-    items,
-  });
+  // window.gtag("event", "purchase", {
+  //   transaction_id: transactionId,
+  //   currency,
+  //   value,
+  //   items,
+  // });
 }
