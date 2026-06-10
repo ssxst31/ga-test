@@ -22,7 +22,7 @@ export function purchase({ transactionId, items, value, currency = "KRW" }) {
     dataLayer: {
       event: "purchase",
       transaction_id: transactionId,
-      currency,
+      currency: "KRW",
       value,
       items,
     },
